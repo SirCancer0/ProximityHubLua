@@ -217,7 +217,7 @@ function ProximityHub:CreateWindow(title)
 		local toggleBtn = Instance.new("Frame")
 		toggleBtn.Size = UDim2.new(0, 40, 0, 20)
 		toggleBtn.Position = UDim2.new(1, -40, 0, 15)
-		toggleBtn.BackgroundColor3 = Color3.fromRGB(100, 100, 100))
+		toggleBtn.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 		toggleBtn.Parent = toggle
 
 		local toggleCorner = Instance.new("UICorner")
@@ -226,23 +226,23 @@ function ProximityHub:CreateWindow(title)
 
 		local circle = Instance.new("Frame")
 		circle.Size = UDim2.new(0, 16, 0, 16)
-		circle.Position = default and UDim2.new(1, -18, 0, 2) or UDim2.new(0, 2, 0, 2))
-		circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255))
+		circle.Position = default and UDim2.new(1, -18, 0, 2) or UDim2.new(0, 2, 0, 2)
+		circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		circle.Parent = toggleBtn
 
 		local circleCorner = Instance.new("UICorner")
 		circleCorner.CornerRadius = UDim.new(0, 8)
 		circleCorner.Parent = circle
 
-		local state = default or default = false
+		local state = default or false
 
 		toggleBtn.MouseButton1Click:Connect(function()
 			state = not state
 			local newPos = state and UDim2.new(1, -18, 0, 2) or UDim2.new(0, 2, 0, 2)
-			local newColor = state and Color3.fromRGB(140, 70, 200)) or Color3.fromRGB(3,100, 100, 100))
+			local newColor = state and Color3.fromRGB(140, 70, 200) or Color3.fromRGB(100, 100, 100)
 			TweenService:Create(circle, TweenInfo.new(0.2), {Position = newPos}):Play()
-			TweenService:Create(toggleBtn, TweenInfo.new(0.2), {BackgroundColor =3 newColor3}):Play()
-			callback(state)
+			TweenService:Create(toggleBtn, TweenInfo.new(0.2), {BackgroundColor3 = newColor}):Play()
+			if callback then callback(state) end
 		end)
 
 		contentFrame.CanvasSize = UDim2.new(0, 0, 0, uiListLayout.AbsoluteContentSize.Y + 20)
